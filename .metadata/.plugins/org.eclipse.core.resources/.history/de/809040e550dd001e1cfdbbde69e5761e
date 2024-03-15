@@ -1,0 +1,40 @@
+package basic_events;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+
+public class ButtonEventHandle extends Application {
+
+	Button btnSave;
+	Button btnClose;
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		try {	
+			FlowPane pane=new FlowPane();
+			
+			//Button Control
+			
+			btnSave = new Button();
+			btnSave .setText("SAVE");
+						
+			btnClose = new Button("CLOSE");			
+						
+			pane.getChildren().add(btnSave);
+			pane.getChildren().add(btnClose);
+			
+			Scene scene = new Scene(pane, 550, 300);
+			primaryStage.setScene(scene);			
+			primaryStage.show();												
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.getMessage());
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

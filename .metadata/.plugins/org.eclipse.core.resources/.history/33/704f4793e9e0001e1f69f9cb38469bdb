@@ -1,0 +1,9 @@
+package week8.jdbcv5;
+
+public class Person {
+	private int pid;
+	private String fullname;
+	private String address;
+	private String email;
+	
+}

@@ -1,0 +1,11 @@
+package application;
+
+import javafx.application.Application;
+
+public class HelloWorld extends Application{
+	
+	@Override
+	public void start(Stage primaryStage) {
+		
+	}
+}

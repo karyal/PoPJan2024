@@ -1,0 +1,13 @@
+package week8.jdbcv2;
+
+public class JDBC_V2 {
+	public static void main(String[] args) {
+		//connect()
+		//insertRecord()
+		//selectAll()
+		//searchRecord()
+		//updateRecord()
+		//deleteRecord()
+		//insertRecord()
+	}
+}

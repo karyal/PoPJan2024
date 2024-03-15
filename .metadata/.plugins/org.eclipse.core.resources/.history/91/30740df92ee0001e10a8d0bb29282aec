@@ -1,0 +1,9 @@
+package week8.jdbcv2;
+
+public class JDBCV2 {
+	//persons (pid, fullname, address, email)
+	
+	public static void main(String[] args) {
+		insertRecord();
+	}
+}

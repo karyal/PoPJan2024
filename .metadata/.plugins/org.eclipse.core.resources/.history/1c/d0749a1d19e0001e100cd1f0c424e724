@@ -1,0 +1,59 @@
+package week8.jdbcv2;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class JDBC_V2 {
+	
+	public static void connect() {
+		final String DRIVER="com.mysql.cj.jdbc.Driver";
+		final String DBNAME="MyDB";
+		final String DBUSER="root";
+		final String USERPASS="pcps@123";
+		final int PORT = 3306;
+		final String HOST = "localhost";
+		final String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DBNAME;
+		try {
+			Connection conn = DriverManager.getConnection(URL, DBUSER, USERPASS);
+			System.out.println("Connected!");
+			conn.close();
+		}
+		catch(Exception ex) {
+			System.out.println("Error : "+ex.getMessage());
+		}
+	}
+	
+	public static void insertRecord() {
+		final String DRIVER="com.mysql.cj.jdbc.Driver";
+		final String DBNAME="MyDB";
+		final String DBUSER="root";
+		final String USERPASS="pcps@123";
+		final int PORT = 3306;
+		final String HOST = "localhost";
+		final String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DBNAME;
+		final String sql = "insert into persons values(1,'Raj Rai', 'Balkhu','raj@gmail.com');";
+		
+		try {
+			//connect
+			Connection conn = DriverManager.getConnection(URL, DBUSER, USERPASS);
+			System.out.println("Connected!");
+			
+			conn.close();
+			//close
+			
+		}
+		catch(Exception ex) {
+			System.out.println("Error : "+ex.getMessage());
+		}
+	}
+	
+	public static void main(String[] args) {
+		connect();
+		//insertRecord()
+		//selectAll()
+		//searchRecord()
+		//updateRecord()
+		//deleteRecord()
+		//insertRecord()
+	}
+}

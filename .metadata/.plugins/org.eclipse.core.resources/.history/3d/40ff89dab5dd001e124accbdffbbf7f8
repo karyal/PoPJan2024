@@ -1,0 +1,48 @@
+package advanced_controls;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+public class PersonNew {
+	private SimpleIntegerProperty pid;
+	private SimpleStringProperty name;
+	private SimpleStringProperty address;
+	private SimpleStringProperty email;
+	
+	public PersonNew(int pid, String name, String address, String email) {
+		this.pid = new SimpleIntegerProperty(pid);
+		this.name = new SimpleStringProperty(name);
+		this.address = new SimpleStringProperty(address);
+		this.email = new SimpleStringProperty(email);
+	}
+
+	public int getPid() {
+		return pid.get();
+	}
+
+	public void setPid(int pid) {
+		this.pid.set(pid);
+	}
+
+	public String getName() {
+		return name.get();
+	}
+
+	public void setName(String name) {
+		this.name.set(name);
+	}	
+	public String getAddress() {
+		return address.get();
+	}
+
+	public void setAddress(String address) {
+		this.address.set(address);
+	}	
+	public String getEmail() {
+		return email.get();
+	}
+
+	public void setEmail(String name) {
+		this.email.set(name);
+	}	
+}

@@ -1,0 +1,25 @@
+package application;
+
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.scene.Group;
+import javafx.stage.Stage;
+
+public class HelloWorld extends Application{
+	
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			//Stage, Scene, and Scene Graph/Nodes
+			Group root = new Group();
+			ObservableList list = root.getChildren(); 
+			
+		}
+		catch(Exception ex) {
+			System.out.println("Error : "+ex.getMessage());
+		}
+	}
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

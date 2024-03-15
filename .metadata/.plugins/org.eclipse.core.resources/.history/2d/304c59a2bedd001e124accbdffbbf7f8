@@ -1,0 +1,60 @@
+package advanced_controls;
+
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class TableViewExample2 extends Application {	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		
+		try {
+			//Initialize Table
+			TableView<PersonNew> table1= new TableView<PersonNew>();
+			ObservableList<PersonNew> data =
+			        FXCollections.observableArrayList(
+			            new PersonNew(1, "Smith"),
+			            new PersonNew(2, "Johnson"),
+			            new PersonNew(3, "Williams"),
+			            new PersonNew(4, "Jones"),
+			            new PersonNew(5, "Brown")
+			        );
+			
+			//Initialize Table Column
+			TableColumn<PersonNew, Integer> colPID = new TableColumn<>("PERSON ID");
+			colPID.setCellValueFactory(new PropertyValueFactory<>("personID"));
+			colPID.setMinWidth(75);
+			
+			TableColumn<PersonNew, Integer> colFullName = new TableColumn<>("FULL NAME");
+			colFullName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+			colFullName.setMinWidth(250);
+			
+			table1.getColumns().addAll(colPID, colFullName);			
+			
+			VBox pane = new VBox(table1);
+			Scene scene = new Scene(pane);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+
+		} catch (Exception ex) {
+			System.out.println("Error : " + ex.getMessage());
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
