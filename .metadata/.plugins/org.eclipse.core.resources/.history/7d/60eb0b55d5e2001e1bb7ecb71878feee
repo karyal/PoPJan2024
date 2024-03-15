@@ -1,9 +1,0 @@
-package windows_controls;
-
-public class Window4 {
-
-	public static void main(String[] args) {
-		
-
-	}
-}

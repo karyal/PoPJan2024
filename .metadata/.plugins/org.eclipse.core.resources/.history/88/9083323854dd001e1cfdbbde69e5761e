@@ -1,9 +1,0 @@
-package advanced_controls;
-
-import javafx.beans.property.SimpleIntegerProperty;
-
-public class Person {
-	private SimpleIntegerProperty pid;
-	private SimpleStringProperty name;
-	
-}
