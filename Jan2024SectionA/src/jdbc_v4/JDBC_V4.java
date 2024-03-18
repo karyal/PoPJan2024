@@ -113,7 +113,7 @@ public class JDBC_V4 {
 		}
 	}
 	
-	public static void updateRecord(int pid, String fullname, String address, String email) {
+	public static void updateRecord(Person person) {
 		final String DRIVER="com.mysql.cj.jdbc.Driver";
 		final String DBNAME="MyDB";
 		final String DBUSER="root";
@@ -124,7 +124,7 @@ public class JDBC_V4 {
 		//final String sql = "UPDATE persons SET fullname='New Name' WHERE pid=1";
 		//final String sql = "UPDATE persons SET address='New address' WHERE pid=1";
 		//final String sql = "UPDATE persons SET email='New email' WHERE pid=1";
-		final String sql = "UPDATE persons SET fullname='"+fullname+"', address='"+address+"', email='"+email+"' WHERE pid="+pid;
+		final String sql = "UPDATE persons SET fullname='"+person.getFullname()+"', address='"+person.getAddress()+"', email='"+person.getEmail()+"' WHERE pid="+person.getPid();
 		try {
 			//Connect
 			Connection conn = DriverManager.getConnection(URL, DBUSER, USERPASS);
@@ -132,7 +132,7 @@ public class JDBC_V4 {
 			stat.executeUpdate(sql); //insert record
 			stat.close();
 			conn.close();
-			System.out.println("Record inserted!");
+			System.out.println("Record Updated!");
 		}
 		catch(Exception ex) {
 			System.out.println("Error : "+ex.getMessage());

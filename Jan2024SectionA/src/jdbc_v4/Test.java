@@ -11,6 +11,13 @@ public class Test {
 		//new JDBC_V4().selectAll();
 		
 		//Search Record based on PID
+		//new JDBC_V4().searchRecord(1);
+		//new JDBC_V4().searchRecord(1000);
+		
+		//Search Record based on PID
+		new JDBC_V4().searchRecord(1);//if found
+		Person tmpPerson=new Person(1 ,"Kiran Sharma", "Balaju", "kiran@gmail.com");
+		new JDBC_V4().updateRecord(tmpPerson);
 		new JDBC_V4().searchRecord(1);
 	}
 
