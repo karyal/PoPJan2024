@@ -70,7 +70,7 @@ public class JDBC_V4 {
 				System.out.println(rs.getInt("pid")+"\t"+
 							rs.getString("fullname")+"\t\t"+
 								rs.getString("address")+"\t\t"+
-									rs.getString("emil"));
+									rs.getString("email"));
 			}
 			rs.close();
 			stat.close();
@@ -102,7 +102,7 @@ public class JDBC_V4 {
 				System.out.println(rs.getInt("pid")+"\t"+
 							rs.getString("fullname")+"\t\t"+
 								rs.getString("address")+"\t\t"+
-									rs.getString("emil"));
+									rs.getString("email"));
 			}
 			rs.close();
 			stat.close();
