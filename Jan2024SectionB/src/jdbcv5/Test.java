@@ -1,5 +1,7 @@
 package jdbcv5;
 
+import java.util.ArrayList;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -10,6 +12,11 @@ public class Test {
 		//new PersonManager().insertRecord(person1);
 		
 		//Display All Records
+		ArrayList<Person> persons = new PersonManager().selectAll();
+		for(Person person: persons) {
+			System.out.println(person);
+		}
+		
 		
 		
 	}

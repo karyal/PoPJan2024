@@ -33,7 +33,7 @@ public class JDBCV5 {
 		}
 	}
 
-	public void selectAll() {
+	public ArrayList selectAll() {
 		final String DRIVER = "com.mysql.cj.jdbc.Driver";
 		final String HOST = "localhost";
 		final int PORT = 3306;
@@ -42,14 +42,15 @@ public class JDBCV5 {
 		final String USER = "root";
 		final String PASS = "pcps@123";
 		final String sql = "SELECT * FROM persons;";
-
+		
+		ArrayList<Person> persons = new ArrayList<Person>();
+		
 		try {
 			Class.forName(DRIVER); // Loading Driver
 			Connection conn = DriverManager.getConnection(URL, USER, PASS);// Connect
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery(sql); // Select
 			
-			ArrayList<Person> persons = new ArrayList<Person>();
 			while (rs.next()) {
 				int pid = rs.getInt("pid");
 				String fullName = rs.getString("fullname");
@@ -65,6 +66,7 @@ public class JDBCV5 {
 		} catch (Exception ex) {
 			System.out.println("Error : " + ex.getMessage());
 		}
+		return persons;
 	}
 
 	public void searchRecord(int pid) {
