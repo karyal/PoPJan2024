@@ -1,4 +1,4 @@
-package week8.jdbcv5;
+package jdbcv5;
 
 public class PersonManager {
 	public void insertRecord(Person person) {
