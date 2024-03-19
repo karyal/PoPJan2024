@@ -1,9 +1,10 @@
-package jdbc_v5;
+spackage jdbc_v5;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class JDBC_V5 {
 	//persons (pid - pk, fullname, address, email)
@@ -52,7 +53,7 @@ public class JDBC_V5 {
 		return result;
 	}
 	
-	public static void selectAll() {
+	public  ArrayList<Person> selectAll() {
 		final String DRIVER="com.mysql.cj.jdbc.Driver";
 		final String DBNAME="MyDB";
 		final String DBUSER="root";
@@ -61,19 +62,23 @@ public class JDBC_V5 {
 		final String HOST = "localhost";
 		final String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DBNAME;
 		final String sql ="SELECT * FROM persons;";
-		//persons(pid, fullname, address, email)
+		
+		ArrayList<Person> persons = new ArrayList<Person>();
+		
 		try {
 			Class.forName(DRIVER);
 			Connection conn = DriverManager.getConnection(URL, DBUSER, USERPASS);
 			//display records
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery(sql);
-			System.out.println("PID\tNAME\t\tADDRESS\t\tEMAIL");//title row
+			
 			while(rs.next()) {
-				System.out.println(rs.getInt("pid")+"\t"+
-							rs.getString("fullname")+"\t\t"+
-								rs.getString("address")+"\t\t"+
-									rs.getString("email"));
+				int pid=rs.getInt("pid");
+				String fullname=rs.getString("fullname");
+				String address=rs.getString("address");
+				String email=rs.getString("email");
+				Person tmpPerson=new Person(pid, fullname, address, email);
+				persons.add(tmpPerson);
 			}
 			rs.close();
 			stat.close();
@@ -82,6 +87,7 @@ public class JDBC_V5 {
 		catch(Exception ex) {
 			System.out.println("Error : "+ex.getMessage());
 		}
+		return persons;
 	}
 	
 	public static void searchRecord(int pid) {
