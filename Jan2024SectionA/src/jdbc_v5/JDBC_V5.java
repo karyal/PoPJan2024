@@ -1,4 +1,4 @@
-spackage jdbc_v5;
+package jdbc_v5;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -90,7 +90,7 @@ public class JDBC_V5 {
 		return persons;
 	}
 	
-	public static void searchRecord(int pid) {
+	public Person searchRecord(int pid) {
 		final String DRIVER="com.mysql.cj.jdbc.Driver";
 		final String DBNAME="MyDB";
 		final String DBUSER="root";
@@ -99,6 +99,7 @@ public class JDBC_V5 {
 		final String HOST = "localhost";
 		final String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DBNAME;
 		final String sql ="SELECT * FROM persons WHERE pid="+pid;
+		Person person=null;
 		//persons(pid, fullname, address, email)
 		try {
 			Class.forName(DRIVER);
@@ -106,12 +107,12 @@ public class JDBC_V5 {
 			//display records
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery(sql);
-			System.out.println("PID\tNAME\t\tADDRESS\t\tEMAIL");//title row
 			while(rs.next()) {
-				System.out.println(rs.getInt("pid")+"\t"+
-							rs.getString("fullname")+"\t\t"+
-								rs.getString("address")+"\t\t"+
-									rs.getString("email"));
+				int personid=rs.getInt("pid");
+				String fullname=rs.getString("fullname");
+				String address=rs.getString("address");
+				String email=rs.getString("email");
+				person = new Person(personid, fullname, address, email);
 			}
 			rs.close();
 			stat.close();
@@ -120,9 +121,11 @@ public class JDBC_V5 {
 		catch(Exception ex) {
 			System.out.println("Error : "+ex.getMessage());
 		}
+		return person;
 	}
 	
-	public static void updateRecord(Person person) {
+	public boolean updateRecord(Person person) {
+		boolean result=false;
 		final String DRIVER="com.mysql.cj.jdbc.Driver";
 		final String DBNAME="MyDB";
 		final String DBUSER="root";
@@ -141,11 +144,12 @@ public class JDBC_V5 {
 			stat.executeUpdate(sql); //insert record
 			stat.close();
 			conn.close();
-			System.out.println("Record Updated!");
+			result=true;
 		}
 		catch(Exception ex) {
 			System.out.println("Error : "+ex.getMessage());
 		}
+		return result;
 	}
 	
 	public static void deleteRecord(int pid) {
