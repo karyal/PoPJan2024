@@ -31,7 +31,16 @@ public class Test {
 		}
 		*/
 		//Update Record
+		/*
 		Person person = new Person(2, "Philip Bhujel", "Lat", "phlip@gmail.com");
 		new PersonManager().updateRecord(person);
+		*/
+		
+		//Delete Record
+		/*
+		int personid = 2;
+		new PersonManager().deleteRecord(personid);
+		*/
+		
 	}
 }

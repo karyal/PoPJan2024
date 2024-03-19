@@ -15,4 +15,7 @@ public class PersonManager {
 	public void updateRecord(Person person) {
 		new JDBCV5().updateRecord(person);
 	}
+	public void deleteRecord(int pid) {
+		new JDBCV5().deleteRecord(pid);
+	}
 }
