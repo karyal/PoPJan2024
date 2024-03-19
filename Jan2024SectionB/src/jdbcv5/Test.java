@@ -1,6 +1,6 @@
 package jdbcv5;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Test {
 
@@ -19,6 +19,8 @@ public class Test {
 		
 		//Search Record
 		int id =9;
+		System.out.println("Enter pid : ");
+		id = Integer.parseInt(new Scanner(System.in).nextLine());
 		Person person = new PersonManager().searchRecord(id);
 		if(person!=null) {
 			System.out.println(person);
