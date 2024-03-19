@@ -18,6 +18,7 @@ public class Test {
 		//}
 		
 		//Search Record
+		/*
 		int id =9;
 		System.out.println("Enter pid : ");
 		id = Integer.parseInt(new Scanner(System.in).nextLine());
@@ -28,5 +29,9 @@ public class Test {
 		else {
 			System.out.println("Record not found");
 		}
+		*/
+		//Update Record
+		Person person = new Person(2, "Philip Bhujel", "Lat", "phlip@gmail.com");
+		new PersonManager().updateRecord(person);
 	}
 }

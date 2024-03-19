@@ -12,4 +12,7 @@ public class PersonManager {
 	public Person searchRecord(int pid) {
 		return new JDBCV5().searchRecord(pid);
 	}
+	public void updateRecord(Person person) {
+		new JDBCV5().updateRecord(person);
+	}
 }
