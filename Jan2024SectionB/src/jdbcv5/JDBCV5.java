@@ -69,7 +69,7 @@ public class JDBCV5 {
 		return persons;
 	}
 
-	public void searchRecord(int pid) {
+	public Person searchRecord(int pid) {
 		final String DRIVER = "com.mysql.cj.jdbc.Driver";
 		final String HOST = "localhost";
 		final int PORT = 3306;
@@ -78,18 +78,18 @@ public class JDBCV5 {
 		final String USER = "root";
 		final String PASS = "pcps@123";
 		final String sql = "SELECT * FROM persons WHERE pid=" + pid;
-
+		Person person=null;
 		try {
 			Class.forName(DRIVER); // Loading Driver
 			Connection conn = DriverManager.getConnection(URL, USER, PASS);// Connect
 			Statement stat = conn.createStatement();
 			ResultSet rs = stat.executeQuery(sql); // Select
-			System.out.println("PID\tNAME\t\tADDRESS\t\tEMAIL");
 			while (rs.next()) {
-				System.out.print(rs.getInt("pid") + "\t");
-				System.out.print(rs.getString("fullname") + "\t\t");
-				System.out.print(rs.getString("address") + "\t\t");
-				System.out.println(rs.getString("email"));
+				int personid=rs.getInt("pid");
+				String fullname=rs.getString("fullname");
+				String address=rs.getString("address");
+				String email =rs.getString("email");
+				person = new Person(personid, fullname, address, email);
 			}
 			rs.close();
 			stat.close();
@@ -97,6 +97,7 @@ public class JDBCV5 {
 		} catch (Exception ex) {
 			System.out.println("Error : " + ex.getMessage());
 		}
+		return person;
 	}
 
 	public void updateRecord(Person person) {

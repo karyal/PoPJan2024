@@ -9,4 +9,7 @@ public class PersonManager {
 	public ArrayList selectAll() {
 		return new JDBCV5().selectAll();
 	}
+	public Person searchRecord(int pid) {
+		return new JDBCV5().searchRecord(pid);
+	}
 }
