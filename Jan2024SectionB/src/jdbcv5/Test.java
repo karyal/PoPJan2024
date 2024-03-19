@@ -17,9 +17,14 @@ public class Test {
 		//	System.out.println(person);
 		//}
 		
-		
-		
-		
-		
+		//Search Record
+		int id =9;
+		Person person = new PersonManager().searchRecord(id);
+		if(person!=null) {
+			System.out.println(person);
+		}
+		else {
+			System.out.println("Record not found");
+		}
 	}
 }
