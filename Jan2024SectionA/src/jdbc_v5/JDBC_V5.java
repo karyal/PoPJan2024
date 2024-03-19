@@ -152,7 +152,8 @@ public class JDBC_V5 {
 		return result;
 	}
 	
-	public static void deleteRecord(int pid) {
+	public boolean deleteRecord(int pid) {
+		boolean result=false;
 		final String DRIVER="com.mysql.cj.jdbc.Driver";
 		final String DBNAME="MyDB";
 		final String DBUSER="root";
@@ -168,11 +169,13 @@ public class JDBC_V5 {
 			stat.executeUpdate(sql); //insert record
 			stat.close();
 			conn.close();
-			System.out.println("Record inserted!");
+			System.out.println("Record delete!");
+			result=true;
 		}
 		catch(Exception ex) {
 			System.out.println("Error : "+ex.getMessage());
 		}
+		return result;
 	}
 	public static void main(String[] args) {
 		//insertRecord(5, "Your name", "Your Address", "Your email");

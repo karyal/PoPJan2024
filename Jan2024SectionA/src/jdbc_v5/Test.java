@@ -38,7 +38,7 @@ public class Test {
 		}
 		*/
 		
-		//Update/Edit Record
+		//Update/Edit Record based on ID
 		/*
 		Person person=new Person(31, "Mingso","BHK","ming@gmail.com");
 		boolean result = new PersonManager().updateRecord(person);
@@ -50,7 +50,16 @@ public class Test {
 		}
 		*/
 		
-		
-		
+		//Delete Record - based on ID
+		/*
+		int pid = 31;
+		boolean result = new PersonManager().deleteRecord(pid);
+		if(result) {
+			System.out.println("Delete record successfully");
+		}
+		else {
+			System.out.println("Error to delete record");
+		}
+		*/
 	}
 }

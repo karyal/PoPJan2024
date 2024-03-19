@@ -15,4 +15,7 @@ public class PersonManager {
 	public boolean updateRecord(Person person) {
 		return new JDBC_V5().updateRecord(person);
 	}
+	public boolean deleteRecord(int pid) {
+		return new JDBC_V5().deleteRecord(pid);
+	}
 }
